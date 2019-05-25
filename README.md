@@ -7,3 +7,4 @@ Or make your own burger
 * MySQL
 * Handlebars
 * Bootstrap
+* Animate CSS
