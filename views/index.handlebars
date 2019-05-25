@@ -1,0 +1,69 @@
+<div class="jumbotron jumbotron-fluid text-center" style="background-color: #8DF2E0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <img src="burger.png" class="animated infinite tada slow" style="width: 150px; height: 150px" id="burger-pic" />
+            </div>
+
+            <div class="col">
+                <h1 class="display-3">Eat-Da-Burger!</h1>
+                <p class="lead">Devour Yummy Burgers, Make Yummy Burgers</p>
+            </div>
+
+            <div class="col-3">
+                <img src="burger.png" class="animated infinite tada slow" style="width: 150px; height: 150px" id="burger-pic" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card text-center mb-4">
+            <h5 class="card-header card-title text-white bg-warning font-weight-bold">Make a Burger</h5>
+                <div class="card-body">
+                    <p class="card-text">Type the name of your burger, and add it to the menu!</p>
+                    <div class="create-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control w-75 mx-auto" id="newBurger">
+                        </div>
+                    <button type="button" id="add-burger" class="btn btn-warning text-white">Add to Menu</button>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-between mx-3 mb-5">
+    {{!-- Burgers not yet eaten --}}
+    <div class="col-6">
+        <div class="card bg-dark mb-3 justify-content-center">
+            <h5 class="card-header text-white text-center font-weight-bold">Menu</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush text-black">
+                    {{#each burgerMenu}}
+                        <li class="list-group-item mb-2" id="list-{{this.id}}"> {{this.burger_name}} 
+                            <span>
+                                <button class="eatme btn btn-success float-right" data-id="{{this.id}}" data-devoured="{{this.devoured}}">Eat Me!</button>
+                            </span>
+                        </li>
+                    {{/each}}        
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Devoured Burgers --}}
+    <div class="col-6">
+        <div class="card bg-info mb-3 justify-content-center">
+            <h5 class="card-header text-white text-center font-weight-bold">Devoured Burgers</h5>
+            <div class="card-body">
+            <ul class="list-group list-group-flush text-black">
+                {{#each burgersEaten}}
+                    <li class="list-group-item mb-2 p-3"> {{this.burger_name}} </li>
+                {{/each}}        
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
